@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>SISTEM PERSAMAAN LINEAR &#8212; My sample book</title>
+    <title>Matriks Transformasi &#8212; My sample book</title>
   
   
   
@@ -64,11 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TUGAS1KAL';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'transformasi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Penyelesaian Sistem Persamaan Linier" href="TUGAS2KAL.html" />
-    <link rel="prev" title="INTRODUCTION" href="intro.html" />
+    <link rel="prev" title="Penyelesaian Sistem Persamaan Linier" href="TUGAS2KAL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,9 +175,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">SISTEM PERSAMAAN LINEAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TUGAS1KAL.html">SISTEM PERSAMAAN LINEAR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TUGAS2KAL.html">Penyelesaian Sistem Persamaan Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi.html">Matriks Transformasi</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Matriks Transformasi</a></li>
 </ul>
 
     </div>
@@ -250,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTUGAS1KAL.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftransformasi.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -280,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/TUGAS1KAL.ipynb" target="_blank"
+      <li><a href="_sources/transformasi.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SISTEM PERSAMAAN LINEAR</h1>
+    <h1>Matriks Transformasi</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,12 +373,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-sistem-persamaan-linier">Pengertian Sistem Persamaan Linier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-sistem-persamaan-linier-penting">Mengapa Sistem Persamaan Linier Penting?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-persamaan-linier">Solusi Persamaan Linier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-substitusi">1. Metode Substitusi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">2. Eliminasi Gauss</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-grafik">3. Solusi Grafik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal">contoh soal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-ringkasan-rantai-transformasi">Tabel Ringkasan Rantai Transformasi</a></li>
 </ul>
 </li>
 </ul>
@@ -393,199 +388,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linear">
-<h1>SISTEM PERSAMAAN LINEAR<a class="headerlink" href="#sistem-persamaan-linear" title="Permalink to this heading">#</a></h1>
-<section id="pengertian-sistem-persamaan-linier">
-<h2>Pengertian Sistem Persamaan Linier<a class="headerlink" href="#pengertian-sistem-persamaan-linier" title="Permalink to this heading">#</a></h2>
-<p>Sistem Persamaan Linier (SPL) adalah kumpulan dari dua atau lebih persamaan linier yang memiliki variabel yang sama dan harus diselesaikan secara bersamaan. Persamaan linier sendiri merupakan persamaan matematika di mana setiap variabel berpangkat satu dan tidak terdapat perkalian antar variabel.</p>
-<p>Secara umum, SPL dengan dua variabel dapat dituliskan sebagai:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{cases} 
-a_1x + b_1y = c_1 \\ 
-a_2x + b_2y = c_2 
-\end{cases}
-\end{split}\]</div>
-<p>di mana 𝑥x dan 𝑦y adalah variabel yang dicari, sedangkan 𝑎1,𝑎2,𝑏1,𝑏2,𝑐1,a1,a2,b1,b2,c1, dan 𝑐2
-adalah konstanta.</p>
-</section>
-<section id="mengapa-sistem-persamaan-linier-penting">
-<h2>Mengapa Sistem Persamaan Linier Penting?<a class="headerlink" href="#mengapa-sistem-persamaan-linier-penting" title="Permalink to this heading">#</a></h2>
-<p>SPL memiliki banyak aplikasi dalam kehidupan sehari-hari, mulai dari bidang teknik, ekonomi, hingga ilmu komputer. Contohnya:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="matriks-transformasi">
+<h1>Matriks Transformasi<a class="headerlink" href="#matriks-transformasi" title="Permalink to this heading">#</a></h1>
+<p>Matriks transformasi adalah alat matematika yang digunakan untuk memetakan satu titik atau vektor ke posisi baru dalam ruang koordinat. Dalam konteks aljabar linear dan grafika komputer, matriks ini memungkinkan kita untuk melakukan manipulasi objek secara efisien.Secara umum, sebuah transformasi linear terhadap vektor <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> dapat dinyatakan dalam persamaan:$<span class="math notranslate nohighlight">\(\mathbf{v'} = M \cdot \mathbf{v}\)</span><span class="math notranslate nohighlight">\(Di mana:\)</span>\mathbf{v}<span class="math notranslate nohighlight">\( adalah vektor input (posisi awal).\)</span>M<span class="math notranslate nohighlight">\( adalah matriks transformasi.\)</span>\mathbf{v’}$ adalah vektor output (posisi akhir).</p>
+<section id="contoh-soal">
+<h2>contoh soal<a class="headerlink" href="#contoh-soal" title="Permalink to this heading">#</a></h2>
+<p>Titik <span class="math notranslate nohighlight">\(A(1, 2)\)</span>
+Transformasi dari:</p>
 <ul class="simple">
-<li><p>Di bidang ekonomi, SPL digunakan untuk menentukan keseimbangan antara permintaan dan penawaran.</p></li>
-<li><p>Dalam teknik dan fisika, SPL digunakan untuk menganalisis rangkaian listrik dan sistem mekanik.</p></li>
-<li><p>Di ilmu komputer, SPL sering diterapkan dalam kecerdasan buatan dan pemrosesan data.</p></li>
+<li><p>A ke B</p></li>
+<li><p>B ke C</p></li>
+<li><p>C ke D</p></li>
+<li><p>D ke E</p></li>
+<li><p>E ke F</p></li>
 </ul>
-</section>
-<section id="solusi-persamaan-linier">
-<h2>Solusi Persamaan Linier<a class="headerlink" href="#solusi-persamaan-linier" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Penyelesaian Tunggal (Unique Solution)
-Definisi: Sistem persamaan linier memiliki satu solusi jika garis-garis yang merepresentasikan persamaan tersebut berpotongan di satu titik.</p></li>
+<li><p>Transformasi <span class="math notranslate nohighlight">\(A \to B\)</span> (Skala)
+Titik <span class="math notranslate nohighlight">\(A\)</span> diperbesar dengan faktor skala <span class="math notranslate nohighlight">\(s_x = 2\)</span> dan <span class="math notranslate nohighlight">\(s_y = 2\)</span>.
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbf{B} &amp;= \mathbf{M}_{scale} \cdot \mathbf{A} \\
+\begin{bmatrix} x_B \\ y_B \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 1 \end{bmatrix}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Hasil: Titik \)</span>B<span class="math notranslate nohighlight">\( berada di \)</span>(2, 4)$.</p></li>
 </ol>
-<p>Contoh: Misalkan kita memiliki sistem persamaan berikut:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-2x + 3y &amp;= 6 \quad &amp;(1) \\
-x - y &amp;= 1 \quad &amp;(2)
-\end{aligned}
-\end{split}\]</div>
-<p>Jika kita menyelesaikan sistem ini, kita akan menemukan satu titik ((x, y)) yang memenuhi kedua persamaan.<br />
-Misalnya, solusi dari sistem ini adalah:</p>
-<p><span class="math notranslate nohighlight">\(
-x = 3, \quad y = 0
-\)</span></p>
 <ol class="arabic simple" start="2">
-<li><p>Banyak Penyelesaian (Infinite Solutions)
-Definisi: Sistem persamaan linier memiliki banyak solusi jika garis-garis yang merepresentasikan persamaan tersebut tumpang tindih (berimpit).</p></li>
+<li><p>Transformasi <span class="math notranslate nohighlight">\(B \to C\)</span> (Rotasi <span class="math notranslate nohighlight">\(90^\circ\)</span>)Titik <span class="math notranslate nohighlight">\(B\)</span> diputar sejauh <span class="math notranslate nohighlight">\(90^\circ\)</span> berlawanan arah jarum jam terhadap titik asal.$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbf{C} &amp;= \mathbf{M}_{rot} \cdot \mathbf{B} \\
+\begin{bmatrix} x_C \\ y_C \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \\ 1 \end{bmatrix} = \begin{bmatrix} -4 \\ 2 \\ 1 \end{bmatrix}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>C<span class="math notranslate nohighlight">\( berada di \)</span>(-4, 2)$.</p></li>
 </ol>
-<p>Contoh: Misalkan kita memiliki sistem persamaan berikut:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-2x + 4y &amp;= 8 \quad (1) \\
-x + 2y &amp;= 4 \quad (2)
-\end{align*}
-\end{split}\]</div>
-<p>Persamaan (1) dapat disederhanakan menjadi ( x + 2y = 4 ), yang sama dengan persamaan (2).<br />
-Karena kedua persamaan ini merepresentasikan garis yang sama, maka ada <strong>banyak solusi</strong>, yaitu semua pasangan ((x, y)) yang memenuhi:</p>
-<p><span class="math notranslate nohighlight">\(
-x + 2y = 4
-\)</span></p>
 <ol class="arabic simple" start="3">
-<li><p>Tidak Ada Penyelesaian (No Solution)
-Definisi: Sistem persamaan linier tidak memiliki solusi jika garis-garis yang merepresentasikan persamaan tersebut sejajar dan tidak pernah berpotongan.</p></li>
+<li><p>Transformasi <span class="math notranslate nohighlight">\(C \to D\)</span> (Translasi)Titik <span class="math notranslate nohighlight">\(C\)</span> digeser sejauh <span class="math notranslate nohighlight">\(t_x = 5\)</span> dan <span class="math notranslate nohighlight">\(t_y = 3\)</span>.$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbf{D} &amp;= \mathbf{M}_{trans} \cdot \mathbf{C} \\
+\begin{bmatrix} x_D \\ y_D \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 1 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} -4 \\ 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 1 \end{bmatrix}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>D<span class="math notranslate nohighlight">\( berada di \)</span>(1, 5)$.</p></li>
 </ol>
-<p>Contoh: Misalkan kita memiliki sistem persamaan berikut:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-2x + 3y &amp;= 6 \quad (1) \\
-2x + 3y &amp;= 8 \quad (2)
-\end{align*}
-\end{split}\]</div>
-<p>Kedua persamaan ini memiliki koefisien yang sama untuk ( x ) dan ( y ), tetapi konstanta di sisi kanan berbeda.<br />
-Ini berarti kedua garis <strong>sejajar</strong> dan <strong>tidak akan pernah berpotongan</strong>, sehingga <strong>tidak ada solusi</strong> untuk sistem ini.</p>
+<ol class="arabic simple" start="4">
+<li><p>Transformasi <span class="math notranslate nohighlight">\(D \to E\)</span> (Refleksi Sumbu-Y)Titik <span class="math notranslate nohighlight">\(D\)</span> dicerminkan terhadap sumbu vertikal (Y).$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbf{E} &amp;= \mathbf{M}_{refl} \cdot \mathbf{D} \\
+\begin{bmatrix} x_E \\ y_E \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} -1 \\ 5 \\ 1 \end{bmatrix}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>E<span class="math notranslate nohighlight">\( berada di \)</span>(-1, 5)$.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Transformasi <span class="math notranslate nohighlight">\(E \to F\)</span> (Shear Horizontal)Titik <span class="math notranslate nohighlight">\(E\)</span> diberikan efek geser (shear) pada sumbu X dengan faktor <span class="math notranslate nohighlight">\(k = 2\)</span>.$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbf{F} &amp;= \mathbf{M}_{shear} \cdot \mathbf{E} \\
+\begin{bmatrix} x_F \\ y_F \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} -1 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} 9 \\ 5 \\ 1 \end{bmatrix}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>F<span class="math notranslate nohighlight">\( berada di \)</span>(9, 5)$.</p></li>
+</ol>
+<section id="tabel-ringkasan-rantai-transformasi">
+<h3>Tabel Ringkasan Rantai Transformasi<a class="headerlink" href="#tabel-ringkasan-rantai-transformasi" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Tahap</p></th>
+<th class="head text-left"><p>Operasi</p></th>
+<th class="head text-left"><p>Matriks Transformasi</p></th>
+<th class="head text-left"><p>Titik Input</p></th>
+<th class="head text-left"><p>Titik Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(A \to B\)</span></strong></p></td>
+<td class="text-left"><p>Skala (2, 2)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((1, 2)\)</span></p></td>
+<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((2, 4)\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(B \to C\)</span></strong></p></td>
+<td class="text-left"><p>Rotasi <span class="math notranslate nohighlight">\(90^\circ\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((2, 4)\)</span></p></td>
+<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((-4, 2)\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(C \to D\)</span></strong></p></td>
+<td class="text-left"><p>Translasi (5, 3)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((-4, 2)\)</span></p></td>
+<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((1, 5)\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(D \to E\)</span></strong></p></td>
+<td class="text-left"><p>Refleksi Sumbu-Y</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((1, 5)\)</span></p></td>
+<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((-1, 5)\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(E \to F\)</span></strong></p></td>
+<td class="text-left"><p>Shear-X (<span class="math notranslate nohighlight">\(k=2\)</span>)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((-1, 5)\)</span></p></td>
+<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((9, 5)\)</span></strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a final GeoGebra .ggb file that matches the full transformation table A→F</span>
 
-<span class="c1"># URL dari GeoGebra yang ingin kamu tampilkan</span>
-<span class="n">geogebra_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.geogebra.org/material/iframe/id/ZgzhJdSQ/width/1000/height/500&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
 
-<span class="c1"># Menampilkan IFrame</span>
-<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">geogebra_url</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">ggb_path</span> <span class="o">=</span> <span class="s2">&quot;transformasi_final.ggb&quot;</span>
+
+<span class="n">xml_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="s2">&lt;geogebra format=&quot;5.0&quot; version=&quot;5.0.0.0&quot;&gt;</span>
+<span class="s2">  &lt;construction title=&quot;Transformasi Lengkap A-F&quot; author=&quot;ChatGPT&quot;&gt;</span>
+
+<span class="s2">    &lt;!-- Titik awal --&gt;</span>
+<span class="s2">    &lt;element type=&quot;point&quot; label=&quot;A&quot;&gt;</span>
+<span class="s2">      &lt;coords x=&quot;1&quot; y=&quot;2&quot; z=&quot;1&quot;/&gt;</span>
+<span class="s2">    &lt;/element&gt;</span>
+
+<span class="s2">    &lt;!-- Scaling --&gt;</span>
+<span class="s2">    &lt;command name=&quot;Dilate&quot;&gt;</span>
+<span class="s2">      &lt;input a0=&quot;A&quot; a1=&quot;2&quot;/&gt;</span>
+<span class="s2">      &lt;output a0=&quot;B&quot;/&gt;</span>
+<span class="s2">    &lt;/command&gt;</span>
+
+<span class="s2">    &lt;!-- Rotasi 90 derajat (pi/2 rad) --&gt;</span>
+<span class="s2">    &lt;element type=&quot;numeric&quot; label=&quot;angle&quot;&gt;</span>
+<span class="s2">      &lt;value val=&quot;1.57079632679&quot;/&gt;</span>
+<span class="s2">    &lt;/element&gt;</span>
+
+<span class="s2">    &lt;command name=&quot;Rotate&quot;&gt;</span>
+<span class="s2">      &lt;input a0=&quot;B&quot; a1=&quot;angle&quot;/&gt;</span>
+<span class="s2">      &lt;output a0=&quot;C&quot;/&gt;</span>
+<span class="s2">    &lt;/command&gt;</span>
+
+<span class="s2">    &lt;!-- Translasi (5,3) --&gt;</span>
+<span class="s2">    &lt;element type=&quot;vector&quot; label=&quot;v&quot;&gt;</span>
+<span class="s2">      &lt;coords x=&quot;5&quot; y=&quot;3&quot; z=&quot;0&quot;/&gt;</span>
+<span class="s2">    &lt;/element&gt;</span>
+
+<span class="s2">    &lt;command name=&quot;Translate&quot;&gt;</span>
+<span class="s2">      &lt;input a0=&quot;C&quot; a1=&quot;v&quot;/&gt;</span>
+<span class="s2">      &lt;output a0=&quot;D&quot;/&gt;</span>
+<span class="s2">    &lt;/command&gt;</span>
+
+<span class="s2">    &lt;!-- Refleksi sumbu-Y --&gt;</span>
+<span class="s2">    &lt;expression label=&quot;E&quot; exp=&quot;(-x(D), y(D))&quot;/&gt;</span>
+
+<span class="s2">    &lt;!-- Shear-X k=2 --&gt;</span>
+<span class="s2">    &lt;expression label=&quot;F&quot; exp=&quot;(x(E)+2*y(E), y(E))&quot;/&gt;</span>
+
+<span class="s2">  &lt;/construction&gt;</span>
+<span class="s2">&lt;/geogebra&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">ggb_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;geogebra.xml&quot;</span><span class="p">,</span> <span class="n">xml_content</span><span class="p">)</span>
+
+<span class="n">ggb_path</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="1000"
-            height="500"
-            src="https://www.geogebra.org/material/iframe/id/ZgzhJdSQ/width/1000/height/500"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;transformasi_final.ggb&#39;
+</pre></div>
 </div>
-<section id="metode-substitusi">
-<h3>1. Metode Substitusi<a class="headerlink" href="#metode-substitusi" title="Permalink to this heading">#</a></h3>
-<p><strong>Definisi:</strong> Metode substitusi adalah teknik menyelesaikan sistem persamaan dengan menyatakan salah satu variabel dalam bentuk variabel lain dari satu persamaan, lalu memasukkannya ke persamaan lainnya.</p>
-<p><strong>Contoh Sistem Persamaan:</strong>
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-2x + 3y &amp;= 6 \quad &amp;(1) \\
-x - y &amp;= 1 \quad &amp;(2)
-\end{aligned}
-\)</span>$</p>
-<p><strong>Langkah-langkah Penyelesaian:</strong></p>
-<ol class="arabic simple">
-<li><p><strong>Ubah persamaan (2)</strong> untuk menyatakan <span class="math notranslate nohighlight">\(x\)</span> dalam bentuk <span class="math notranslate nohighlight">\(y\)</span>:
-$<span class="math notranslate nohighlight">\(x = y + 1\)</span>$</p></li>
-<li><p><strong>Substitusi</strong> nilai <span class="math notranslate nohighlight">\(x\)</span> tersebut ke dalam <strong>persamaan (1)</strong>:
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-2(y + 1) + 3y &amp;= 6 \\
-2y + 2 + 3y &amp;= 6 \\
-5y + 2 &amp;= 6 \\
-5y &amp;= 4 \\
-y &amp;= \frac{4}{5}
-\end{aligned}
-\)</span>$</p></li>
-<li><p><strong>Substitusi kembali</strong> nilai <span class="math notranslate nohighlight">\(y = \frac{4}{5}\)</span> ke dalam persamaan <span class="math notranslate nohighlight">\(x = y + 1\)</span>:
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{4}{5} + 1 \\
-x &amp;= \frac{4}{5} + \frac{5}{5} \\
-x &amp;= \frac{9}{5}
-\end{aligned}
-\)</span>$</p></li>
-</ol>
-<p><strong>Himpunan Penyelesaian:</strong> <span class="math notranslate nohighlight">\(x = \frac{9}{5}, y = \frac{4}{5}\)</span></p>
-<p><strong>Solusi:</strong></p>
-<p><span class="math notranslate nohighlight">\(
-\left( x = \frac{9}{5}, \quad y = \frac{4}{5} \right)
-\)</span></p>
-</section>
-<section id="eliminasi-gauss">
-<h3>2. Eliminasi Gauss<a class="headerlink" href="#eliminasi-gauss" title="Permalink to this heading">#</a></h3>
-<p><strong>Definisi:</strong> Eliminasi Gauss adalah metode sistematis untuk menyelesaikan sistem persamaan linier dengan mengubah matriks koefisien menjadi bentuk <strong>eselon baris</strong> (segitiga atas) menggunakan Operasi Baris Elementer (OBE).</p>
-<p><strong>Contoh:</strong> Misalkan kita memiliki sistem persamaan berikut:
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-2x + 3y + z &amp;= 1 \quad &amp;(1) \\
-4x + y - z &amp;= 2 \quad &amp;(2) \\
--2x + y + 2z &amp;= 3 \quad &amp;(3)
-\end{aligned}
-\)</span>$</p>
-<p><strong>Langkah-langkah:</strong></p>
-<ol class="arabic simple">
-<li><p><strong>Representasi Matriks Augmented:</strong>
-$<span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccc|c}
-2 &amp; 3 &amp; 1 &amp; 1 \\
-4 &amp; 1 &amp; -1 &amp; 2 \\
--2 &amp; 1 &amp; 2 &amp; 3
-\end{array}
-\right]
-\)</span>$</p></li>
-<li><p><strong>Operasi Baris Elementer (OBE):</strong>
-Setelah melakukan serangkaian operasi baris (seperti <span class="math notranslate nohighlight">\(R_2 - 2R_1\)</span> dan <span class="math notranslate nohighlight">\(R_3 + R_1\)</span>), matriks akan berubah menjadi bentuk segitiga atas:
-$<span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccc|c}
-2 &amp; 3 &amp; 1 &amp; 1 \\
-0 &amp; -5 &amp; -3 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 1
-\end{array}
-\right]
-\)</span>$</p></li>
-<li><p><strong>Substitusi Mundur:</strong>
-Dari baris terakhir, kita mendapatkan <span class="math notranslate nohighlight">\(z = 1\)</span>. Masukkan nilai <span class="math notranslate nohighlight">\(z\)</span> ke baris kedua untuk mencari <span class="math notranslate nohighlight">\(y\)</span>, lalu masukkan <span class="math notranslate nohighlight">\(y\)</span> dan <span class="math notranslate nohighlight">\(z\)</span> ke baris pertama untuk mencari <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="solusi-grafik">
-<h3>3. Solusi Grafik<a class="headerlink" href="#solusi-grafik" title="Permalink to this heading">#</a></h3>
-<p><strong>Definisi:</strong> Metode grafik dilakukan dengan menggambar setiap persamaan linier pada koordinat Kartesius. Titik di mana garis-garis tersebut saling berpotongan merupakan solusi dari sistem tersebut.</p>
-<p><strong>Contoh Sistem Persamaan:</strong>
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-y &amp;= 2x + 1 \quad &amp;(1) \\
-y &amp;= -x + 4 \quad &amp;(2)
-\end{aligned}
-\)</span>$</p>
-<p><strong>Interpretasi Hasil:</strong></p>
-<ul class="simple">
-<li><p><strong>Satu Titik Potong:</strong> Sistem memiliki solusi tunggal (konsisten).</p></li>
-<li><p><strong>Garis Sejajar:</strong> Sistem tidak memiliki solusi (inkonsisten).</p></li>
-<li><p><strong>Garis Berhimpit:</strong> Sistem memiliki solusi tak hingga.</p></li>
-</ul>
+</div>
+</div>
+<p>berikut hasil dari geogebra</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
 </section>
 </section>
 </section>
@@ -621,22 +583,13 @@ y &amp;= -x + 4 \quad &amp;(2)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="TUGAS2KAL.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">INTRODUCTION</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="TUGAS2KAL.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Penyelesaian Sistem Persamaan Linier</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -654,12 +607,8 @@ y &amp;= -x + 4 \quad &amp;(2)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-sistem-persamaan-linier">Pengertian Sistem Persamaan Linier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-sistem-persamaan-linier-penting">Mengapa Sistem Persamaan Linier Penting?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-persamaan-linier">Solusi Persamaan Linier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-substitusi">1. Metode Substitusi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">2. Eliminasi Gauss</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-grafik">3. Solusi Grafik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal">contoh soal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-ringkasan-rantai-transformasi">Tabel Ringkasan Rantai Transformasi</a></li>
 </ul>
 </li>
 </ul>
