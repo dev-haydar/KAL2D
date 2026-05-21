@@ -374,7 +374,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dekomposisi-qr">Contoh Soal Dekomposisi QR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dekomposisi-qr">Contoh Soal Dekomposisi QR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-pertama-q-1">Vektor Pertama (<span class="math notranslate nohighlight">\(q_1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-kedua-q-2">Vektor Kedua (<span class="math notranslate nohighlight">\(q_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-ketiga-q-3">Vektor Ketiga (<span class="math notranslate nohighlight">\(q_3\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-keempat-q-4">Vektor Keempat (<span class="math notranslate nohighlight">\(q_4\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-dekomposisinya-adalah">Hasil dekomposisinya adalah:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -394,10 +401,73 @@ sedang hingga besar.</p>
 <section id="contoh-soal-dekomposisi-qr">
 <h2>Contoh Soal Dekomposisi QR<a class="headerlink" href="#contoh-soal-dekomposisi-qr" title="Permalink to this heading">#</a></h2>
 <p>Disini terdapat matriks 4x4 sebagai contoh soal
-$<span class="math notranslate nohighlight">\(A = \begin{bmatrix} 5 &amp; 12 &amp; 3 &amp; 8 \\ 0 &amp; 15 &amp; 7 &amp; 2 \\ 11 &amp; 4 &amp; 19 &amp; 1 \\ 6 &amp; 9 &amp; 14 &amp; 10 \end{bmatrix}\)</span>$
-berikut penyelesaian secara manual
-<img alt="Kal qr.jpeg" src="attachment:Kal%20qr.jpeg" />
+$<span class="math notranslate nohighlight">\(A = \begin{bmatrix} 5 &amp; 12 &amp; 3 &amp; 8 \\ 0 &amp; 15 &amp; 7 &amp; 2 \\ 11 &amp; 4 &amp; 19 &amp; 1 \\ 6 &amp; 9 &amp; 14 &amp; 10 \end{bmatrix}\)</span>$</p>
+<p>berikut penyelesaian secara manual</p>
+<p><img alt="Kal qr.jpeg" src="attachment:Kal%20qr.jpeg" />
 <img alt="kal qr 2.jpeg" src="attachment:kal%20qr%202.jpeg" /></p>
+<p>kolom-kolom matriks <span class="math notranslate nohighlight">\(A\)</span> sebagai vektor <span class="math notranslate nohighlight">\(a_1, a_2, a_3,\)</span> dan</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_4\)</span>:<span class="math notranslate nohighlight">\(a_1 = [5, 0, 11, 6]^T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_2 = [12, 15, 4, 9]^T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_3 = [3, 7, 19, 14]^T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_4 = [8, 2, 1, 10]^T\)</span></p></li>
+</ul>
+<section id="vektor-pertama-q-1">
+<h3>Vektor Pertama (<span class="math notranslate nohighlight">\(q_1\)</span>)<a class="headerlink" href="#vektor-pertama-q-1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ambil kolom pertama <span class="math notranslate nohighlight">\(a_1\)</span> lalu normalisasi agar panjangnya menjadi 1.</p></li>
+<li><p>Hitung norm (panjang) dari <span class="math notranslate nohighlight">\(a_1\)</span>: <span class="math notranslate nohighlight">\(||a_1|| = \sqrt{5^2 + 0^2 + 11^2 + 6^2} = \sqrt{182} \approx 13.4907\)</span></p></li>
+<li><p>Gunakan rumus <span class="math notranslate nohighlight">\(q_1 = \frac{a_1}{||a_1||}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q_1 \approx [0.3706, 0, 0.8153, 0.4447]^T\)</span></p></li>
+</ul>
+</section>
+<section id="vektor-kedua-q-2">
+<h3>Vektor Kedua (<span class="math notranslate nohighlight">\(q_2\)</span>)<a class="headerlink" href="#vektor-kedua-q-2" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(v_2 = a_2 - (a_2 \cdot q_1)q_1\)</span>.</p>
+<ul class="simple">
+<li><p>Nilai proyeksi: <span class="math notranslate nohighlight">\(a_2 \cdot q_1 \approx 12(0.3706) + 15(0) + 4(0.8153) + 9(0.4447) \approx 11.7118\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_2 \approx [12, 15, 4, 9]^T - 11.7118 \times [0.3706, 0, 0.8153, 0.4447]^T \approx [7.659, 15, -5.549, 3.791]^T\)</span></p></li>
+<li><p>Normalisasi <span class="math notranslate nohighlight">\(v_2\)</span> menjadi <span class="math notranslate nohighlight">\(q_2\)</span> dengan rumus <span class="math notranslate nohighlight">\(q_2 = \frac{v_2}{||v_2||}\)</span>.</p></li>
+<li><p>Norm <span class="math notranslate nohighlight">\(v_2\)</span>: <span class="math notranslate nohighlight">\(||v_2|| \approx \sqrt{7.659^2 + 15^2 + (-5.549)^2 + 3.791^2} \approx 18.1338\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(q_2 \approx [0.4224, 0.8272, -0.3060, 0.2091]^T\)</span></p></li>
+</ul>
+</section>
+<section id="vektor-ketiga-q-3">
+<h3>Vektor Ketiga (<span class="math notranslate nohighlight">\(q_3\)</span>)<a class="headerlink" href="#vektor-ketiga-q-3" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(v_k = a_k - \sum_{i=1}^{k-1}(a_k \cdot q_i)q_i\)</span>.</p>
+<ul class="simple">
+<li><p>Proyeksi ke <span class="math notranslate nohighlight">\(q_1\)</span>: <span class="math notranslate nohighlight">\(a_3 \cdot q_1 \approx 22.8283\)</span></p></li>
+<li><p>Proyeksi ke <span class="math notranslate nohighlight">\(q_2\)</span>: <span class="math notranslate nohighlight">\(a_3 \cdot q_2 \approx 4.1710\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_3 = a_3 - (22.8283)q_1 - (4.1710)q_2 \approx [-7.22, 3.55, 1.66, 2.98]^T\)</span></p></li>
+<li><p>Norm <span class="math notranslate nohighlight">\(v_3\)</span>: <span class="math notranslate nohighlight">\(||v_3|| \approx 8.730\)</span></p></li>
+<li><p>Gunakan rumus normalisasi <span class="math notranslate nohighlight">\(q_k = \frac{v_k}{||v_k||}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q_3 \approx [-0.827, 0.407, 0.190, 0.341]^T\)</span></p></li>
+</ul>
+</section>
+<section id="vektor-keempat-q-4">
+<h3>Vektor Keempat (<span class="math notranslate nohighlight">\(q_4\)</span>)<a class="headerlink" href="#vektor-keempat-q-4" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Gunakan rumus generalisasi yang sama untuk kolom keempat</p></li>
+<li><p>Proyeksi ke <span class="math notranslate nohighlight">\(q_1\)</span>: <span class="math notranslate nohighlight">\(a_4 \cdot q_1 \approx 8.227\)</span></p></li>
+<li><p>Proyeksi ke <span class="math notranslate nohighlight">\(q_2\)</span>: <span class="math notranslate nohighlight">\(a_4 \cdot q_2 \approx 6.8186\)</span></p></li>
+<li><p>Proyeksi ke <span class="math notranslate nohighlight">\(q_3\)</span>: <span class="math notranslate nohighlight">\(a_4 \cdot q_3 \approx -2.202\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_4 = a_4 - (8.227)q_1 - (6.8186)q_2 - (-2.202)q_3 \approx [0.251, -2.744, -3.203, 5.667]^T\)</span></p></li>
+<li><p>Norm <span class="math notranslate nohighlight">\(v_4\)</span>: <span class="math notranslate nohighlight">\(||v_4|| \approx 7.068\)</span></p></li>
+<li><p>Gunakan rumus normalisasi <span class="math notranslate nohighlight">\(q_k = \frac{v_k}{||v_k||}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q_4 \approx [0.035, -0.388, -0.453, 0.801]^T\)</span></p></li>
+</ul>
+</section>
+<section id="hasil-dekomposisinya-adalah">
+<h3>Hasil dekomposisinya adalah:<a class="headerlink" href="#hasil-dekomposisinya-adalah" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Matriks <span class="math notranslate nohighlight">\(Q\)</span> adalah gabungan vektor kolom <span class="math notranslate nohighlight">\(q_1, q_2, q_3,\)</span> dan <span class="math notranslate nohighlight">\(q_4\)</span>:
+$<span class="math notranslate nohighlight">\(Q \approx \begin{bmatrix} 0.371 &amp; 0.422 &amp; -0.827 &amp; 0.035 \\ 0 &amp; 0.827 &amp; 0.407 &amp; -0.388 \\ 0.815 &amp; -0.306 &amp; 0.190 &amp; -0.453 \\ 0.445 &amp; 0.209 &amp; 0.341 &amp; 0.801 \end{bmatrix}\)</span>$</p></li>
+<li><p>Matriks <span class="math notranslate nohighlight">\(R\)</span> berisi nilai proyeksi di bagian atas diagonal, dan nilai norm (panjang) sebagai diagonal utama:
+$<span class="math notranslate nohighlight">\(R \approx \begin{bmatrix} ||a_1|| &amp; a_2 \cdot q_1 &amp; a_3 \cdot q_1 &amp; a_4 \cdot q_1 \\ 0 &amp; ||v_2|| &amp; a_3 \cdot q_2 &amp; a_4 \cdot q_2 \\ 0 &amp; 0 &amp; ||v_3|| &amp; a_4 \cdot q_3 \\ 0 &amp; 0 &amp; 0 &amp; ||v_4|| \end{bmatrix}\)</span>$</p></li>
+<li><p>Masukkan angka hasil hitungan sebelumnya:
+$<span class="math notranslate nohighlight">\(R \approx \begin{bmatrix} 13.491 &amp; 11.712 &amp; 22.828 &amp; 8.227 \\ 0 &amp; 18.134 &amp; 4.171 &amp; 6.819 \\ 0 &amp; 0 &amp; 8.730 &amp; -2.202 \\ 0 &amp; 0 &amp; 0 &amp; 7.068 \end{bmatrix}\)</span>$</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -456,7 +526,14 @@ berikut penyelesaian secara manual
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dekomposisi-qr">Contoh Soal Dekomposisi QR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dekomposisi-qr">Contoh Soal Dekomposisi QR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-pertama-q-1">Vektor Pertama (<span class="math notranslate nohighlight">\(q_1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-kedua-q-2">Vektor Kedua (<span class="math notranslate nohighlight">\(q_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-ketiga-q-3">Vektor Ketiga (<span class="math notranslate nohighlight">\(q_3\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-keempat-q-4">Vektor Keempat (<span class="math notranslate nohighlight">\(q_4\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-dekomposisinya-adalah">Hasil dekomposisinya adalah:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
