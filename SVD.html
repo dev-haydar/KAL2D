@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Matriks Transformasi &#8212; My sample book</title>
+    <title>Singular Value Decomposition (SVD) &#8212; My sample book</title>
   
   
   
@@ -64,11 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'transformasi';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SVD';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DEKOMPOSISI QR" href="dekomposisi.html" />
-    <link rel="prev" title="Penyelesaian Sistem Persamaan Linier" href="TUGAS2KAL.html" />
+    <link rel="prev" title="DEKOMPOSISI QR" href="dekomposisi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,9 +177,9 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="TUGAS1KAL.html">SISTEM PERSAMAAN LINEAR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TUGAS2KAL.html">Penyelesaian Sistem Persamaan Linier</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Matriks Transformasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transformasi.html">Matriks Transformasi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dekomposisi.html">DEKOMPOSISI QR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SVD.html">Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Singular Value Decomposition (SVD)</a></li>
 </ul>
 
     </div>
@@ -252,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftransformasi.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSVD.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/transformasi.ipynb" target="_blank"
+      <li><a href="_sources/SVD.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Matriks Transformasi</h1>
+    <h1>Singular Value Decomposition (SVD)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,10 +375,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal">contoh soal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-ringkasan-rantai-transformasi">Tabel Ringkasan Rantai Transformasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Singular Value Decomposition (SVD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-svd">Aplikasi SVD</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-matematis">Definisi Matematis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-u">1. Matriks U</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sigma">2. Matriks Σ (Sigma)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-svd">Interpretasi SVD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-v-t">3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
             </nav>
         </div>
@@ -391,167 +401,185 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="matriks-transformasi">
-<h1>Matriks Transformasi<a class="headerlink" href="#matriks-transformasi" title="Permalink to this heading">#</a></h1>
-<p>Matriks transformasi adalah alat matematika yang digunakan untuk memetakan satu titik atau vektor ke posisi baru dalam ruang koordinat. Dalam konteks aljabar linear dan grafika komputer, matriks ini memungkinkan kita untuk melakukan manipulasi objek secara efisien.Secara umum, sebuah transformasi linear terhadap vektor <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> dapat dinyatakan dalam persamaan:$<span class="math notranslate nohighlight">\(\mathbf{v'} = M \cdot \mathbf{v}\)</span><span class="math notranslate nohighlight">\(Di mana:\)</span>\mathbf{v}<span class="math notranslate nohighlight">\( adalah vektor input (posisi awal).\)</span>M<span class="math notranslate nohighlight">\( adalah matriks transformasi.\)</span>\mathbf{v’}$ adalah vektor output (posisi akhir).</p>
-<section id="contoh-soal">
-<h2>contoh soal<a class="headerlink" href="#contoh-soal" title="Permalink to this heading">#</a></h2>
-<p>Titik <span class="math notranslate nohighlight">\(A(1, 2)\)</span>
-Transformasi dari:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="singular-value-decomposition-svd">
+<h1>Singular Value Decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Permalink to this heading">#</a></h1>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>A ke B</p></li>
-<li><p>B ke C</p></li>
-<li><p>C ke D</p></li>
-<li><p>D ke E</p></li>
-<li><p>E ke F</p></li>
+<li><p>Singular Value Decomposition (SVD)</p></li>
+<li><p>Definisi Matematis</p></li>
+<li><p>Interpretasi SVD</p></li>
+<li><p>Kesimpulan</p></li>
 </ul>
+</section>
+<section id="id1">
+<h2>Singular Value Decomposition (SVD)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Singular Value Decomposition (SVD) adalah teknik faktorisasi matriks untuk menguraikan sebuah matriks menjadi tiga matriks lainnya sehingga dapat mengungkapkan aspek penting dari struktur matriks aslinya.</p>
+<section id="aplikasi-svd">
+<h3>Aplikasi SVD<a class="headerlink" href="#aplikasi-svd" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pemrosesan sinyal (Signal Processing)</p></li>
+<li><p>Kompresi gambar (Image Compression)</p></li>
+<li><p>Reduksi dimensi pada Machine Learning</p></li>
+<li><p>Sistem rekomendasi</p></li>
+<li><p>Analisis data</p></li>
+</ul>
+<p>Materi ini mengasumsikan bahwa pembaca memiliki pengetahuan dasar aljabar linear, khususnya mengenai:</p>
+<ul class="simple">
+<li><p>Norma vektor dan matriks</p></li>
+<li><p>Rank matriks</p></li>
+<li><p>Dekomposisi eigen</p></li>
+<li><p>Vektor ortonormal</p></li>
+<li><p>Proyeksi linear</p></li>
+</ul>
+</section>
+</section>
+<section id="definisi-matematis">
+<h2>Definisi Matematis<a class="headerlink" href="#definisi-matematis" title="Permalink to this heading">#</a></h2>
+<p>Dekomposisi nilai singular (Singular Value Decomposition) dari suatu matriks riil berukuran <span class="math notranslate nohighlight">\(m \times n\)</span> dinyatakan sebagai:</p>
+<div class="math notranslate nohighlight">
+\[
+A = U \Sigma V^T
+\]</div>
+<p>dengan:</p>
+<section id="matriks-u">
+<h3>1. Matriks U<a class="headerlink" href="#matriks-u" title="Permalink to this heading">#</a></h3>
+<p>Matriks ortogonal berukuran <span class="math notranslate nohighlight">\(m \times m\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+U^T U = U U^T = I
+\]</div>
+<p>Kolom-kolomnya disebut <strong>left singular vectors</strong>.</p>
+</section>
+<section id="matriks-sigma">
+<h3>2. Matriks Σ (Sigma)<a class="headerlink" href="#matriks-sigma" title="Permalink to this heading">#</a></h3>
+<p>Matriks diagonal berukuran <span class="math notranslate nohighlight">\(m \times n\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Sigma =
+\begin{bmatrix}
+\sigma_1 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; \sigma_2 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \cdots &amp; \sigma_r
+\end{bmatrix}
+\end{split}\]</div>
+<p>dengan:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_r \ge 0
+\]</div>
+<p>Nilai-nilai tersebut disebut <strong>singular values</strong>.</p>
+</section>
+</section>
+<section id="interpretasi-svd">
+<h2>Interpretasi SVD<a class="headerlink" href="#interpretasi-svd" title="Permalink to this heading">#</a></h2>
+<section id="matriks-v-t">
+<h3>3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span><a class="headerlink" href="#matriks-v-t" title="Permalink to this heading">#</a></h3>
+<p>Transpose dari matriks ortogonal <span class="math notranslate nohighlight">\(V\)</span> berukuran <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+V^T V = V V^T = I
+\]</div>
+<p>Kolom-kolom matriks <span class="math notranslate nohighlight">\(V\)</span> disebut <strong>right singular vectors</strong>.</p>
+<p>SVD memecah transformasi matriks menjadi tiga tahap:</p>
 <ol class="arabic simple">
-<li><p>Transformasi <span class="math notranslate nohighlight">\(A \to B\)</span> (Skala)
-Titik <span class="math notranslate nohighlight">\(A\)</span> diperbesar dengan faktor skala <span class="math notranslate nohighlight">\(s_x = 2\)</span> dan <span class="math notranslate nohighlight">\(s_y = 2\)</span>.
-$<span class="math notranslate nohighlight">\(\begin{aligned}
-\mathbf{B} &amp;= \mathbf{M}_{scale} \cdot \mathbf{A} \\
-\begin{bmatrix} x_B \\ y_B \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 1 \end{bmatrix}
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(
-Hasil: Titik \)</span>B<span class="math notranslate nohighlight">\( berada di \)</span>(2, 4)$.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V^T\)</span> melakukan rotasi atau refleksi data.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> melakukan scaling.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> melakukan rotasi atau refleksi kembali.</p></li>
 </ol>
-<ol class="arabic simple" start="2">
-<li><p>Transformasi <span class="math notranslate nohighlight">\(B \to C\)</span> (Rotasi <span class="math notranslate nohighlight">\(90^\circ\)</span>)Titik <span class="math notranslate nohighlight">\(B\)</span> diputar sejauh <span class="math notranslate nohighlight">\(90^\circ\)</span> berlawanan arah jarum jam terhadap titik asal.$<span class="math notranslate nohighlight">\(\begin{aligned}
-\mathbf{C} &amp;= \mathbf{M}_{rot} \cdot \mathbf{B} \\
-\begin{bmatrix} x_C \\ y_C \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \\ 1 \end{bmatrix} = \begin{bmatrix} -4 \\ 2 \\ 1 \end{bmatrix}
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>C<span class="math notranslate nohighlight">\( berada di \)</span>(-4, 2)$.</p></li>
-</ol>
-<ol class="arabic simple" start="3">
-<li><p>Transformasi <span class="math notranslate nohighlight">\(C \to D\)</span> (Translasi)Titik <span class="math notranslate nohighlight">\(C\)</span> digeser sejauh <span class="math notranslate nohighlight">\(t_x = 5\)</span> dan <span class="math notranslate nohighlight">\(t_y = 3\)</span>.$<span class="math notranslate nohighlight">\(\begin{aligned}
-\mathbf{D} &amp;= \mathbf{M}_{trans} \cdot \mathbf{C} \\
-\begin{bmatrix} x_D \\ y_D \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 1 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} -4 \\ 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 1 \end{bmatrix}
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>D<span class="math notranslate nohighlight">\( berada di \)</span>(1, 5)$.</p></li>
-</ol>
-<ol class="arabic simple" start="4">
-<li><p>Transformasi <span class="math notranslate nohighlight">\(D \to E\)</span> (Refleksi Sumbu-Y)Titik <span class="math notranslate nohighlight">\(D\)</span> dicerminkan terhadap sumbu vertikal (Y).$<span class="math notranslate nohighlight">\(\begin{aligned}
-\mathbf{E} &amp;= \mathbf{M}_{refl} \cdot \mathbf{D} \\
-\begin{bmatrix} x_E \\ y_E \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} -1 \\ 5 \\ 1 \end{bmatrix}
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>E<span class="math notranslate nohighlight">\( berada di \)</span>(-1, 5)$.</p></li>
-</ol>
-<ol class="arabic simple" start="5">
-<li><p>Transformasi <span class="math notranslate nohighlight">\(E \to F\)</span> (Shear Horizontal)Titik <span class="math notranslate nohighlight">\(E\)</span> diberikan efek geser (shear) pada sumbu X dengan faktor <span class="math notranslate nohighlight">\(k = 2\)</span>.$<span class="math notranslate nohighlight">\(\begin{aligned}
-\mathbf{F} &amp;= \mathbf{M}_{shear} \cdot \mathbf{E} \\
-\begin{bmatrix} x_F \\ y_F \\ 1 \end{bmatrix} &amp;= \begin{bmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} -1 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} 9 \\ 5 \\ 1 \end{bmatrix}
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(Hasil: Titik \)</span>F<span class="math notranslate nohighlight">\( berada di \)</span>(9, 5)$.</p></li>
-</ol>
-<section id="tabel-ringkasan-rantai-transformasi">
-<h3>Tabel Ringkasan Rantai Transformasi<a class="headerlink" href="#tabel-ringkasan-rantai-transformasi" title="Permalink to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Tahap</p></th>
-<th class="head text-left"><p>Operasi</p></th>
-<th class="head text-left"><p>Matriks Transformasi</p></th>
-<th class="head text-left"><p>Titik Input</p></th>
-<th class="head text-left"><p>Titik Output</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(A \to B\)</span></strong></p></td>
-<td class="text-left"><p>Skala (2, 2)</p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\((1, 2)\)</span></p></td>
-<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((2, 4)\)</span></strong></p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(B \to C\)</span></strong></p></td>
-<td class="text-left"><p>Rotasi <span class="math notranslate nohighlight">\(90^\circ\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\((2, 4)\)</span></p></td>
-<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((-4, 2)\)</span></strong></p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(C \to D\)</span></strong></p></td>
-<td class="text-left"><p>Translasi (5, 3)</p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\((-4, 2)\)</span></p></td>
-<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((1, 5)\)</span></strong></p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(D \to E\)</span></strong></p></td>
-<td class="text-left"><p>Refleksi Sumbu-Y</p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\((1, 5)\)</span></p></td>
-<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((-1, 5)\)</span></strong></p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p><strong><span class="math notranslate nohighlight">\(E \to F\)</span></strong></p></td>
-<td class="text-left"><p>Shear-X (<span class="math notranslate nohighlight">\(k=2\)</span>)</p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\((-1, 5)\)</span></p></td>
-<td class="text-left"><p><strong><span class="math notranslate nohighlight">\((9, 5)\)</span></strong></p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>Dengan demikian:</p>
+<div class="math notranslate nohighlight">
+\[
+A = U\Sigma V^T
+\]</div>
+<p>menunjukkan bahwa matriks asli dapat direkonstruksi dari ketiga komponen tersebut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a final GeoGebra .ggb file that matches the full transformation table A→F</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="n">ggb_path</span> <span class="o">=</span> <span class="s2">&quot;transformasi_final.ggb&quot;</span>
+<span class="c1"># Singular Value Decomposition</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-<span class="n">xml_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="s2">&lt;geogebra format=&quot;5.0&quot; version=&quot;5.0.0.0&quot;&gt;</span>
-<span class="s2">  &lt;construction title=&quot;Transformasi Lengkap A-F&quot; author=&quot;ChatGPT&quot;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix U:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 
-<span class="s2">    &lt;!-- Titik awal --&gt;</span>
-<span class="s2">    &lt;element type=&quot;point&quot; label=&quot;A&quot;&gt;</span>
-<span class="s2">      &lt;coords x=&quot;1&quot; y=&quot;2&quot; z=&quot;1&quot;/&gt;</span>
-<span class="s2">    &lt;/element&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Singular Values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 
-<span class="s2">    &lt;!-- Scaling --&gt;</span>
-<span class="s2">    &lt;command name=&quot;Dilate&quot;&gt;</span>
-<span class="s2">      &lt;input a0=&quot;A&quot; a1=&quot;2&quot;/&gt;</span>
-<span class="s2">      &lt;output a0=&quot;B&quot;/&gt;</span>
-<span class="s2">    &lt;/command&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix V^T:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">VT</span><span class="p">)</span>
 
-<span class="s2">    &lt;!-- Rotasi 90 derajat (pi/2 rad) --&gt;</span>
-<span class="s2">    &lt;element type=&quot;numeric&quot; label=&quot;angle&quot;&gt;</span>
-<span class="s2">      &lt;value val=&quot;1.57079632679&quot;/&gt;</span>
-<span class="s2">    &lt;/element&gt;</span>
+<span class="c1"># Ubah S menjadi matriks diagonal Sigma</span>
+<span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 
-<span class="s2">    &lt;command name=&quot;Rotate&quot;&gt;</span>
-<span class="s2">      &lt;input a0=&quot;B&quot; a1=&quot;angle&quot;/&gt;</span>
-<span class="s2">      &lt;output a0=&quot;C&quot;/&gt;</span>
-<span class="s2">    &lt;/command&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix Sigma:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sigma</span><span class="p">)</span>
 
-<span class="s2">    &lt;!-- Translasi (5,3) --&gt;</span>
-<span class="s2">    &lt;element type=&quot;vector&quot; label=&quot;v&quot;&gt;</span>
-<span class="s2">      &lt;coords x=&quot;5&quot; y=&quot;3&quot; z=&quot;0&quot;/&gt;</span>
-<span class="s2">    &lt;/element&gt;</span>
+<span class="c1"># Rekonstruksi matriks A</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">Sigma</span> <span class="o">@</span> <span class="n">VT</span>
 
-<span class="s2">    &lt;command name=&quot;Translate&quot;&gt;</span>
-<span class="s2">      &lt;input a0=&quot;C&quot; a1=&quot;v&quot;/&gt;</span>
-<span class="s2">      &lt;output a0=&quot;D&quot;/&gt;</span>
-<span class="s2">    &lt;/command&gt;</span>
-
-<span class="s2">    &lt;!-- Refleksi sumbu-Y --&gt;</span>
-<span class="s2">    &lt;expression label=&quot;E&quot; exp=&quot;(-x(D), y(D))&quot;/&gt;</span>
-
-<span class="s2">    &lt;!-- Shear-X k=2 --&gt;</span>
-<span class="s2">    &lt;expression label=&quot;F&quot; exp=&quot;(x(E)+2*y(E), y(E))&quot;/&gt;</span>
-
-<span class="s2">  &lt;/construction&gt;</span>
-<span class="s2">&lt;/geogebra&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">ggb_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
-    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;geogebra.xml&quot;</span><span class="p">,</span> <span class="n">xml_content</span><span class="p">)</span>
-
-<span class="n">ggb_path</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil U @ Sigma @ V^T:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hasil</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;transformasi_final.ggb&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix U:
+[[-0.21132487 -0.57735027 -0.78867513]
+ [-0.57735027 -0.57735027  0.57735027]
+ [-0.78867513  0.57735027 -0.21132487]]
+
+Singular Values:
+[3.73205081 2.         0.26794919]
+
+Matrix V^T:
+[[-0.57735027 -0.21132487 -0.78867513]
+ [-0.57735027 -0.57735027  0.57735027]
+ [ 0.57735027 -0.78867513 -0.21132487]]
+
+Matrix Sigma:
+[[3.73205081 0.         0.        ]
+ [0.         2.         0.        ]
+ [0.         0.         0.26794919]]
+
+Hasil U @ Sigma @ V^T:
+[[ 1.  1.  0.]
+ [ 2.  1.  1.]
+ [ 1. -0.  3.]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>berikut hasil dari geogebra</p>
-<p><img alt="image.png" src="attachment:image.png" /></p>
 </section>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
+<p>Singular Value Decomposition (SVD) adalah metode penting dalam aljabar linear yang menguraikan suatu matriks menjadi:</p>
+<div class="math notranslate nohighlight">
+\[
+A = U\Sigma V^T
+\]</div>
+<p>dengan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U\)</span> berisi vektor singular kiri</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> berisi nilai singular</p></li>
+<li><p><span class="math notranslate nohighlight">\(V^T\)</span> berisi vektor singular kanan</p></li>
+</ul>
+<p>SVD banyak digunakan pada:</p>
+<ul class="simple">
+<li><p>Kompresi data</p></li>
+<li><p>Analisis citra</p></li>
+<li><p>Reduksi dimensi</p></li>
+<li><p>Machine Learning</p></li>
+<li><p>Sistem rekomendasi</p></li>
+</ul>
 </section>
 </section>
 
@@ -586,22 +614,13 @@ Hasil: Titik \)</span>B<span class="math notranslate nohighlight">\( berada di \
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="TUGAS2KAL.html"
+       href="dekomposisi.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Penyelesaian Sistem Persamaan Linier</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="dekomposisi.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">DEKOMPOSISI QR</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -619,10 +638,21 @@ Hasil: Titik \)</span>B<span class="math notranslate nohighlight">\( berada di \
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal">contoh soal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-ringkasan-rantai-transformasi">Tabel Ringkasan Rantai Transformasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Singular Value Decomposition (SVD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-svd">Aplikasi SVD</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-matematis">Definisi Matematis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-u">1. Matriks U</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sigma">2. Matriks Σ (Sigma)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-svd">Interpretasi SVD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-v-t">3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
   </nav></div>
 
